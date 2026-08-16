@@ -1,0 +1,106 @@
+/* Gastroenterology brief: same clinical system, with a hydration/nutrition palette. */
+:root {
+  --paper: #f0f4ef;
+  --surface: #fbfdfb;
+  --ink: #1f3b35;
+  --body: #344a45;
+  --muted: #66756f;
+  --teal: #63783f;
+  --teal-pale: #e2ead5;
+  --red: #a65b3f;
+  --red-pale: #f7e9e2;
+  --line: #ccd6cd;
+  --line-dark: #9dac9f;
+  --shadow: 0 18px 45px #1f3b3517;
+}
+
+body {
+  background: linear-gradient(#1f3b3507 1px, transparent 1px), var(--paper);
+  background-size: 100% 28px;
+}
+
+.topbar {
+  background: #f0f4efeb;
+  border-bottom-color: #9dac9f99;
+}
+
+a:focus-visible {
+  outline-color: #63783f73;
+}
+
+.priority-strip {
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 42px;
+}
+
+.priority-strip > div {
+  min-width: 0;
+  padding: 18px 18px 17px 0;
+}
+
+.priority-strip > div + div {
+  border-left: 1px solid var(--line);
+  padding-left: 18px;
+}
+
+.priority-strip span,
+.priority-strip strong,
+.priority-strip small {
+  display: block;
+}
+
+.priority-strip span {
+  color: var(--red);
+  font-family: var(--utility);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  margin-bottom: 7px;
+}
+
+.priority-strip strong {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.08rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.priority-strip small {
+  color: var(--muted);
+  font-size: .72rem;
+  margin-top: 4px;
+}
+
+.question-card:nth-child(2) {
+  background: var(--teal-pale);
+}
+
+.question-card:nth-child(2) .question-meta {
+  color: var(--ink);
+}
+
+@media (max-width: 700px) {
+  .priority-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .priority-strip > div {
+    padding: 15px 0;
+  }
+
+  .priority-strip > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+  }
+}
+
+@media print {
+  .priority-strip {
+    break-inside: avoid;
+  }
+}
